@@ -1,10 +1,10 @@
 serving: 
-  spec: "local"
+  spec: "dev"
   application: 
-  - spec: "local"
+  - spec: "dev"
     host: ""
     port: 7890
-  - spec: "testing"
+  - spec: "prod"
     host: ""
     port: 7890
 
