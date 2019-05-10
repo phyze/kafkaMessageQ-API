@@ -1,9 +1,20 @@
-FROM centos:7
-COPY . /app
+FROM golang:latest
+COPY . /usr/home/go/src/AMCO
+RUN  mkdir /app
 WORKDIR /app
 ENV AMCO_HOME=/app
-RUN  yum install -y tar curl lsof which
-RUN yum install -y http://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/l/librdkafka-0.11.5-1.el7.x86_64.rpm
-RUN chmod a+x /app/amco
+ENV GOPATH=/usr/home/go
+RUN wget http://archive.ubuntu.com/ubuntu/pool/universe/libr/librdkafka/librdkafka1_0.11.5-1_amd64.deb && \
+    wget http://archive.ubuntu.com/ubuntu/pool/universe/libr/librdkafka/librdkafka++1_0.11.5-1_amd64.deb && \
+    wget http://archive.ubuntu.com/ubuntu/pool/universe/libr/librdkafka/librdkafka-dev_0.11.5-1_amd64.deb && \
+    apt install -y  ./librdkafka1_0.11.5-1_amd64.deb && \
+    apt install  -y ./librdkafka++1_0.11.5-1_amd64.deb && \
+    apt install -y  ./librdkafka-dev_0.11.5-1_amd64.deb && \
+    apt update && apt install -y redis-server
+RUN go build -tags prod /usr/home/go/src/AMCO
+RUN cp -R /usr/home/go/src/AMCO/serverConfig /app/serverConfig
+RUN ls -a /app/serverConfig
+RUN rm -rf /usr/home/go/src/AMCO
+
 EXPOSE 7890
-CMD ./amco
+CMD ./AMCO
