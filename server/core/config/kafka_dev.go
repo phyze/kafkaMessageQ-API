@@ -5,7 +5,7 @@ package config
 import "github.com/confluentinc/confluent-kafka-go/kafka"
 
 // BrokerList kafka servers
-const BrokerList = "kaf1:9092"
+const BrokerList = "localhost:9092"
 
 // AutoOffsetResetDefault auto.offset.reset for consumer
 const AutoOffsetResetDefault = "latest"
