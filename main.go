@@ -1,7 +1,7 @@
 package main
 
 import (
-	"AMCO/server/core"
+	"kafkaMessageQ-API/server/core"
 	"fmt"
 )
 

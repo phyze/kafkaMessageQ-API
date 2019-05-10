@@ -1,12 +1,12 @@
 package handler
 
 import (
-	"AMCO/server/core/config"
-	"AMCO/server/core/services"
-	"AMCO/server/core/structs/commu"
-	"AMCO/server/core/structs/logger"
-	"AMCO/server/plugin"
 	"errors"
+	"kafkaMessageQ-API/server/core/config"
+	"kafkaMessageQ-API/server/core/services"
+	"kafkaMessageQ-API/server/core/structs/commu"
+	"kafkaMessageQ-API/server/core/structs/logger"
+	"kafkaMessageQ-API/server/plugin"
 	"net/http"
 	"os"
 	"sync"
@@ -27,8 +27,6 @@ func ConsumeHandle(res http.ResponseWriter, req *http.Request) {
 	logWriter.Formatter = changedFieldTimeToUTCLog
 	logWriter.Level = log.TraceLevel
 	logger := logger.Logger{}
-
-	addValuesFromServerConfigToLogger(&logger)
 
 	defer req.Body.Close()
 	var consumeForm *commu.ConsumerForm

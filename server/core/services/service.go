@@ -1,8 +1,8 @@
 package services
 
 import (
-	"AMCO/server/core/structs/logger"
-	"AMCO/server/plugin/uuid"
+	"kafkaMessageQ-API/server/core/structs/logger"
+	"kafkaMessageQ-API/server/plugin/uuid"
 	"log"
 )
 

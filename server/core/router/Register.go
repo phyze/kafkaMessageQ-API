@@ -1,7 +1,7 @@
 package router
 
 import (
-	core "AMCO/server/core/handler"
+	core "kafkaMessageQ-API/server/core/handler"
 
 	"github.com/gorilla/mux"
 )

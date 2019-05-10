@@ -1,9 +1,9 @@
 package services
 
 import (
-	"AMCO/server/core/config"
-	"AMCO/server/core/structs/commu"
-	"AMCO/server/plugin/kafkaclient"
+	"kafkaMessageQ-API/server/core/config"
+	"kafkaMessageQ-API/server/core/structs/commu"
+	"kafkaMessageQ-API/server/plugin/kafkaclient"
 	"errors"
 	"fmt"
 	"regexp"

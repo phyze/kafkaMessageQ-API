@@ -1,14 +1,13 @@
 package handler
 
 import (
-	"AMCO/server/core/config"
-	"AMCO/server/core/structs/logger"
-	"AMCO/server/plugin"
 	"fmt"
+	"kafkaMessageQ-API/server/core/config"
+	"kafkaMessageQ-API/server/core/structs/logger"
+	"kafkaMessageQ-API/server/plugin"
 	"net/http"
 	"os"
 
-	"github.com/go-redis/redis"
 	jsoniter "github.com/json-iterator/go"
 	log "github.com/sirupsen/logrus"
 )
@@ -22,8 +21,7 @@ const (
 )
 
 var (
-	logWriter   = log.New()
-	redisClient = redis.NewClient(&config.RedisOptions)
+	logWriter = log.New()
 )
 
 func Index(res http.ResponseWriter, req *http.Request) {
@@ -32,34 +30,6 @@ func Index(res http.ResponseWriter, req *http.Request) {
 	i["license"] = "Gram kittisak P."
 	data, _ := jsoniter.Marshal(i)
 	res.Write(data)
-}
-
-//Add only properties that logger has
-//this below using redis to share data between
-//packages	because i have no idea to think that
-// how sharing data between packages.
-func addValuesFromServerConfigToLogger(lg *logger.Logger) error {
-
-	iam, err := redisClient.Get("iam").Result()
-	if err != nil {
-		return err
-	}
-
-	version, err := redisClient.Get("version").Result()
-	if err != nil {
-		return err
-	}
-
-	release, err := redisClient.Get("release").Result()
-	if err != nil {
-		return err
-	}
-
-	lg.IAM = iam
-	lg.Release = release
-	lg.Version = version
-
-	return nil
 }
 
 //writeLog

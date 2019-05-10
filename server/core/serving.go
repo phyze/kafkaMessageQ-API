@@ -1,17 +1,15 @@
 package core
 
 import (
-	"AMCO/server/core/config"
-	"AMCO/server/core/router"
-	"AMCO/server/core/structs/serverConfig"
 	"errors"
 	"io/ioutil"
+	"kafkaMessageQ-API/server/core/config"
+	"kafkaMessageQ-API/server/core/router"
+	"kafkaMessageQ-API/server/core/structs/serverConfig"
 	"net/http"
 	"os"
 	"path"
 	"strconv"
-
-	"github.com/go-redis/redis"
 
 	"gopkg.in/yaml.v2"
 )
@@ -70,7 +68,6 @@ func readConfigFile() ([]byte, error) {
 }
 
 func setConfig(serverConfigYaml []byte) error {
-	redisClient := redis.NewClient(&config.RedisOptions)
 
 	if err := yaml.Unmarshal(serverConfigYaml, &serverConf); err != nil {
 		return err
@@ -81,21 +78,6 @@ func setConfig(serverConfigYaml []byte) error {
 		if serverConf.Serving.Spec == v.Spec {
 			applicationConfig = v
 		}
-	}
-
-	if serverConf.Serving.Version != "" {
-
-		redisClient.Set("version", serverConf.Serving.Version, 0)
-	}
-
-	if serverConf.Serving.Release != "" {
-
-		redisClient.Set("release", serverConf.Serving.Release, 0)
-	}
-
-	if serverConf.Serving.IAM != "" {
-
-		redisClient.Set("iam", serverConf.Serving.IAM, 0)
 	}
 
 	return nil

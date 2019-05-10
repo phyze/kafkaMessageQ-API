@@ -1,8 +1,5 @@
 serving: 
   spec: "local"
-  version: "19.04.1.0.0"
-  release: "current"
-  iam: "Aggregate Messaging Controller API"
   application: 
   - spec: "local"
     host: ""

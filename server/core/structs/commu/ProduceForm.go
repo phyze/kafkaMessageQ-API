@@ -1,9 +1,9 @@
 package commu
 
 import (
-	"AMCO/server/core/config"
-	i "AMCO/server/core/ideal/commu"
-	"AMCO/server/plugin"
+	"kafkaMessageQ-API/server/core/config"
+	i "kafkaMessageQ-API/server/core/ideal/commu"
+	"kafkaMessageQ-API/server/plugin"
 	"encoding/json"
 	"errors"
 	"reflect"

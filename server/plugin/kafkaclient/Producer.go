@@ -1,7 +1,7 @@
 package kafkaclient
 
 import (
-	"AMCO/server/core/config"
+	"kafkaMessageQ-API/server/core/config"
 	"context"
 	"time"
 

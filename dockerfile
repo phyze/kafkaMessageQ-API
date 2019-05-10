@@ -9,8 +9,7 @@ RUN wget http://archive.ubuntu.com/ubuntu/pool/universe/libr/librdkafka/librdkaf
     wget http://archive.ubuntu.com/ubuntu/pool/universe/libr/librdkafka/librdkafka-dev_0.11.5-1_amd64.deb && \
     apt install -y  ./librdkafka1_0.11.5-1_amd64.deb && \
     apt install  -y ./librdkafka++1_0.11.5-1_amd64.deb && \
-    apt install -y  ./librdkafka-dev_0.11.5-1_amd64.deb && \
-    apt update && apt install -y redis-server
+    apt install -y  ./librdkafka-dev_0.11.5-1_amd64.deb 
 RUN go build -tags prod /usr/home/go/src/AMCO
 RUN cp -R /usr/home/go/src/AMCO/serverConfig /app/serverConfig
 RUN ls -a /app/serverConfig

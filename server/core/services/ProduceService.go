@@ -3,13 +3,13 @@
 package services
 
 import (
-	"AMCO/server/core/config"
-	"AMCO/server/core/structs/commu"
-	"AMCO/server/plugin"
-	"AMCO/server/plugin/kafkaclient"
-	"AMCO/server/plugin/uuid"
 	"errors"
 	"fmt"
+	"kafkaMessageQ-API/server/core/config"
+	"kafkaMessageQ-API/server/core/structs/commu"
+	"kafkaMessageQ-API/server/plugin"
+	"kafkaMessageQ-API/server/plugin/kafkaclient"
+	"kafkaMessageQ-API/server/plugin/uuid"
 	"regexp"
 	"strings"
 	"sync"
@@ -27,14 +27,17 @@ func ProduceService(pf *commu.ProduceForm, rt chan *commu.ResponseTringger) {
 	kafkaResponse, err := kafkaclient.ExistsTopic(&pf.Topics, &config.AsyncConfigProduce)
 	//if kafka was error return error that receive from kafka
 
-	if err != nil && kafkaResponse == -1 {
+	if err != nil && kafkaResponse == 0 {
+		response.Error = err.Error()
+		response.StatusCode = _serverError
+		rt <- &response
+		return
+	} else if err != nil && kafkaResponse == -1 {
 		response.Error = err.Error()
 		response.StatusCode = _badRequest
 		rt <- &response
 		return
-	}
-
-	if kafkaResponse == 0 || err != nil {
+	} else if kafkaResponse == 0 && err == nil {
 		err = errors.New("topics not found")
 		response.Error = err.Error()
 		response.StatusCode = _badRequest
