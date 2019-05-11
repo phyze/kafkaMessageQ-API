@@ -1,7 +1,7 @@
 package kafkaclient
 
 import (
-	"kafkaMessageQ-API/server/core/structs/commu"
+	"KafkaMessageQ-API/server/core/structs/commu"
 
 	jsoniter "github.com/json-iterator/go"
 

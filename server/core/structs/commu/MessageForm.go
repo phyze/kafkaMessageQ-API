@@ -3,8 +3,8 @@ package commu
 import (
 	"encoding/json"
 	"errors"
-	i "kafkaMessageQ-API/server/core/ideal/commu"
-	"kafkaMessageQ-API/server/plugin"
+	i "KafkaMessageQ-API/server/core/ideal/commu"
+	"KafkaMessageQ-API/server/plugin"
 	"log"
 	"reflect"
 	"sort"

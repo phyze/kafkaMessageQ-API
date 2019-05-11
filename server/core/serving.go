@@ -1,11 +1,11 @@
 package core
 
 import (
+	"KafkaMessageQ-API/server/core/config"
+	"KafkaMessageQ-API/server/core/router"
+	"KafkaMessageQ-API/server/core/structs/serverConfig"
 	"errors"
 	"io/ioutil"
-	"kafkaMessageQ-API/server/core/config"
-	"kafkaMessageQ-API/server/core/router"
-	"kafkaMessageQ-API/server/core/structs/serverConfig"
 	"net/http"
 	"os"
 	"path"

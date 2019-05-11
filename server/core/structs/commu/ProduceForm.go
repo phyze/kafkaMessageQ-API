@@ -1,9 +1,9 @@
 package commu
 
 import (
-	"kafkaMessageQ-API/server/core/config"
-	i "kafkaMessageQ-API/server/core/ideal/commu"
-	"kafkaMessageQ-API/server/plugin"
+	"KafkaMessageQ-API/server/core/config"
+	i "KafkaMessageQ-API/server/core/ideal/commu"
+	"KafkaMessageQ-API/server/plugin"
 	"encoding/json"
 	"errors"
 	"reflect"

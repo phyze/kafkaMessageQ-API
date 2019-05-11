@@ -81,6 +81,7 @@ export AMCO_HOME=$(pwd)
 # build
 rm -rf build
 mkdir ./build
+
 go build -tags ${BUILD_ENV} -o build/${ADDR[${#ADDR[@]}-1]} . && \
   cp -R ./serverConfig ./build && \
   cd build && \

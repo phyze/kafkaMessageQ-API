@@ -1,7 +1,7 @@
 package main
 
 import (
-	"kafkaMessageQ-API/server/core"
+	"KafkaMessageQ-API/server/core"
 	"fmt"
 )
 

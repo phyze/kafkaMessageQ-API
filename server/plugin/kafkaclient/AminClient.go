@@ -1,7 +1,7 @@
 package kafkaclient
 
 import (
-	"kafkaMessageQ-API/server/core/config"
+	"KafkaMessageQ-API/server/core/config"
 	"errors"
 	"reflect"
 

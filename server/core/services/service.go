@@ -1,8 +1,8 @@
 package services
 
 import (
-	"kafkaMessageQ-API/server/core/structs/logger"
-	"kafkaMessageQ-API/server/plugin/uuid"
+	"KafkaMessageQ-API/server/core/structs/logger"
+	"KafkaMessageQ-API/server/plugin/uuid"
 	"log"
 )
 

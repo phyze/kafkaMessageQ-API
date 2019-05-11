@@ -1,9 +1,9 @@
 package services
 
 import (
-	"kafkaMessageQ-API/server/core/config"
-	"kafkaMessageQ-API/server/core/structs/commu"
-	"kafkaMessageQ-API/server/plugin/kafkaclient"
+	"KafkaMessageQ-API/server/core/config"
+	"KafkaMessageQ-API/server/core/structs/commu"
+	"KafkaMessageQ-API/server/plugin/kafkaclient"
 	"errors"
 	"fmt"
 	"regexp"

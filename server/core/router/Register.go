@@ -1,7 +1,7 @@
 package router
 
 import (
-	core "kafkaMessageQ-API/server/core/handler"
+	core "KafkaMessageQ-API/server/core/handler"
 
 	"github.com/gorilla/mux"
 )

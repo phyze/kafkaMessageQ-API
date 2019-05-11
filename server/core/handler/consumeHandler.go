@@ -2,11 +2,11 @@ package handler
 
 import (
 	"errors"
-	"kafkaMessageQ-API/server/core/config"
-	"kafkaMessageQ-API/server/core/services"
-	"kafkaMessageQ-API/server/core/structs/commu"
-	"kafkaMessageQ-API/server/core/structs/logger"
-	"kafkaMessageQ-API/server/plugin"
+	"KafkaMessageQ-API/server/core/config"
+	"KafkaMessageQ-API/server/core/services"
+	"KafkaMessageQ-API/server/core/structs/commu"
+	"KafkaMessageQ-API/server/core/structs/logger"
+	"KafkaMessageQ-API/server/plugin"
 	"net/http"
 	"os"
 	"sync"
