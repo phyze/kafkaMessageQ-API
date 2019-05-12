@@ -8,10 +8,10 @@
 - [Quick start](https://github.com/gamkittisak/kafkaMessageQ-API#quick-start)
 - [Document](https://github.com/gamkittisak/kafkaMessageQ-API#document)
     - [Producer](https://github.com/gamkittisak/kafkaMessageQ-API#producer)
-        - [aWait: true | false\<boolean>](https://github.com/gamkittisak/kafkaMessageQ-API#await)
         - [message: { JSON [,"cliendID": uuid\<string>] }](https://github.com/gamkittisak/kafkaMessageQ-API#message)
         - [topics: {"sending": string [,"receiving": string] }](https://github.com/gamkittisak/kafkaMessageQ-API#topics)
         - [options](https://github.com/gamkittisak/kafkaMessageQ-API#options)
+            - [aWait: true | false\<boolean>](https://github.com/gamkittisak/kafkaMessageQ-API#await)
             - [timeouts](https://github.com/gamkittisak/kafkaMessageQ-API#timeouts)
                 -   [timeout: \<int>](https://github.com/gamkittisak/kafkaMessageQ-API#timeout)
                 -   [timeoutProduce: \<int>](https://github.com/gamkittisak/kafkaMessageQ-API#timeoutproduce)
@@ -87,11 +87,6 @@ synchronous of the kafka client library.
 
 ### Producer
 
-##### aWait
-    
-if true AMCO will block process until receive result  message, 
-false AMCO will not wait receive message from topic that specified.
-
 ##### message
     
 that is your any data in json format.
@@ -110,6 +105,12 @@ for producer topics isn't list but it's json format, below is the fields of topi
 
 
 ### Options
+
+
+##### aWait
+    
+if true AMCO will block process until receive result  message, 
+false AMCO will not wait receive message by default.
 
 ##### timeouts 
     
