@@ -3,32 +3,32 @@
 
 ### Index
 
-- [Installing](https://gitlab.com/gamkittisak/amco/blob/master/README.md#installing)
-- [Run](https://gitlab.com/gamkittisak/amco/blob/master/README.md#run)
-- [Quick start](https://gitlab.com/gamkittisak/amco/blob/master/README.md#quick-start)
-- [Document](https://gitlab.com/gamkittisak/amco/blob/master/README.md#document)
-    - [Producer](https://gitlab.com/gamkittisak/amco/blob/master/README.md#producer)
-        - [aWait: true | false\<boolean>](https://gitlab.com/gamkittisak/amco/blob/master/README.md#await)
-        - [message: { JSON [,"cliendID": uuid\<string>] }](https://gitlab.com/gamkittisak/amco/blob/master/README.md#message)
-        - [topics: {"sending": string [,"receiving": string] }](https://gitlab.com/gamkittisak/amco/blob/master/README.md#topics)
-        - [options](https://gitlab.com/gamkittisak/amco/blob/master/README.md#options)
-            - [timeouts](https://gitlab.com/gamkittisak/amco/blob/master/README.md#timeouts)
-                -   [timeout: \<int>](https://gitlab.com/gamkittisak/amco/blob/master/README.md#timeout)
-                -   [timeoutProduce: \<int>](https://gitlab.com/gamkittisak/amco/blob/master/README.md#timeoutproduce)
-                -   [timeoutConsume: \<int>](https://gitlab.com/gamkittisak/amco/blob/master/README.md#timeoutconsume)
-            - [clientID: \<string>](https://gitlab.com/gamkittisak/amco/blob/master/README.md#clientid)
-        - [examples](https://gitlab.com/gamkittisak/amco/blob/master/README.md#examples)
-            - [asynchronous](https://gitlab.com/gamkittisak/amco/blob/master/README.md#asynchronous)
-            - [synchronous](https://gitlab.com/gamkittisak/amco/blob/master/README.md#synchronous)
-            - [timeouts](https://gitlab.com/gamkittisak/amco/blob/master/README.md#timeouts)
-    - [Consumer](https://gitlab.com/gamkittisak/amco/blob/master/README.md#consumer-1)
-        - [groupID: \<string>](https://gitlab.com/gamkittisak/amco/blob/master/README.md#groupid)
-        - [topics: list\<string | null>](https://gitlab.com/gamkittisak/amco/blob/master/README.md#topics-1)
-        - [option](https://gitlab.com/gamkittisak/amco/blob/master/README.md#option)
-            - [autoOffsetReset: "earliest" | "latest"\<string>](https://gitlab.com/gamkittisak/amco/blob/master/README.md#autooffsetreset)
-        - [examples](https://gitlab.com/gamkittisak/amco/blob/master/README.md#examples-1)
-            - [subscribe multi-topics](https://gitlab.com/gamkittisak/amco/blob/master/README.md#subscribe-multi-topics)
-            - [subscribe all topics](https://gitlab.com/gamkittisak/amco/blob/master/README.md#subscribe-all-topics)
+- [Installing](https://github.com/gamkittisak/kafkaMessageQ-API#installing)
+- [Run](https://github.com/gamkittisak/kafkaMessageQ-API#run)
+- [Quick start](https://github.com/gamkittisak/kafkaMessageQ-API#quick-start)
+- [Document](https://github.com/gamkittisak/kafkaMessageQ-API#document)
+    - [Producer](https://github.com/gamkittisak/kafkaMessageQ-API#producer)
+        - [aWait: true | false\<boolean>](https://github.com/gamkittisak/kafkaMessageQ-API#await)
+        - [message: { JSON [,"cliendID": uuid\<string>] }](https://github.com/gamkittisak/kafkaMessageQ-API#message)
+        - [topics: {"sending": string [,"receiving": string] }](https://github.com/gamkittisak/kafkaMessageQ-API#topics)
+        - [options](https://github.com/gamkittisak/kafkaMessageQ-API#options)
+            - [timeouts](https://github.com/gamkittisak/kafkaMessageQ-API#timeouts)
+                -   [timeout: \<int>](https://github.com/gamkittisak/kafkaMessageQ-API#timeout)
+                -   [timeoutProduce: \<int>](https://github.com/gamkittisak/kafkaMessageQ-API#timeoutproduce)
+                -   [timeoutConsume: \<int>](https://github.com/gamkittisak/kafkaMessageQ-API#timeoutconsume)
+            - [clientID: \<string>](https://github.com/gamkittisak/kafkaMessageQ-API#clientid)
+        - [examples](https://github.com/gamkittisak/kafkaMessageQ-API#examples)
+            - [asynchronous](https://github.com/gamkittisak/kafkaMessageQ-API#asynchronous)
+            - [synchronous](https://github.com/gamkittisak/kafkaMessageQ-API#synchronous)
+            - [timeouts](https://github.com/gamkittisak/kafkaMessageQ-API#timeouts)
+    - [Consumer](https://github.com/gamkittisak/kafkaMessageQ-API#consumer-1)
+        - [groupID: \<string>](https://github.com/gamkittisak/kafkaMessageQ-API#groupid)
+        - [topics: list\<string | null>](https://github.com/gamkittisak/kafkaMessageQ-API#topics-1)
+        - [option](https://github.com/gamkittisak/kafkaMessageQ-API#option)
+            - [autoOffsetReset: "earliest" | "latest"\<string>](https://github.com/gamkittisak/kafkaMessageQ-API#autooffsetreset)
+        - [examples](https://github.com/gamkittisak/kafkaMessageQ-API#examples-1)
+            - [subscribe multi-topics](https://github.com/gamkittisak/kafkaMessageQ-API#subscribe-multi-topics)
+            - [subscribe all topics](https://github.com/gamkittisak/kafkaMessageQ-API#subscribe-all-topics)
          
 
 ---
@@ -98,12 +98,12 @@ using synchronous send message of the kafka client library, AMCO only using \
 synchronous of the kafka client library.
 
 
-    curl localhost:7890/amco/api/producer -d '{ "aWait":false, "topics":{"sending": "test-req"}, "message":{"greet":"Hello World"} }'
+    curl localhost:7890/api/producer -d '{ "aWait":false, "topics":{"sending": "test-req"}, "message":{"greet":"Hello World"} }'
 
     
 ##### Consumer 
     
-    curl localhost:7890/amco/api/consumer -d '{ "groupID":"test", "autoOffsetReset":"earliest" , "topics":["test-req"]}'
+    curl localhost:7890/api/consumer -d '{ "groupID":"test", "autoOffsetReset":"earliest" , "topics":["test-req"]}'
     
 
 ---
@@ -160,26 +160,26 @@ it may come from services[i] of services[1],services[2],...,services[n] that sub
 
 ##### asynchronous
 
-    curl -XPOST localhost:7890/amco/api/producer  \ 
+    curl -XPOST localhost:7890/api/producer  \ 
     -d '{"aWait":false, "message":{[JSON]}, \ 
     "topics":{"sending":"[SEND_TO_TOPIC]"}}'
 
 ##### synchronous
 
-    curl -XPOST localhost:7890/amco/api/producer  \ 
+    curl -XPOST localhost:7890/api/producer  \ 
     -d '{"aWait":true, "message":{[JSON]}, \ 
     "topics":{"sending":"[SEND_TO_TOPIC]","receiving":"[RECEIVE_FROM_TOPIC]"}'
     
 ##### timeouts
-    curl -XPOST localhost:7890/amco/api/producer  \ 
+    curl -XPOST localhost:7890/api/producer  \ 
     -d '{"aWait":[Boolean], "message":{[JSON]}, \ 
     "topics":{"sending":"[SEND_TO_TOPIC]"},"timeout": 10}'
 
-    curl -XPOST localhost:7890/amco/api/producer  \ 
+    curl -XPOST localhost:7890/api/producer  \ 
     -d '{"aWait":[Boolean], "message":{[JSON]}, \ 
     "topics":{"sending":"[SEND_TO_TOPIC]"},"timeoutProduce": 30}'
     
-    curl -XPOST localhost:7890/amco/api/producer  \ 
+    curl -XPOST localhost:7890/api/producer  \ 
     -d '{"aWait":[Boolean], "message":{[JSON]}, \ 
     "topics":{"sending":"[SEND_TO_TOPIC]", \
     "receiving":"[RECEIVE_TOPIC_FROM]"},"timeoutProduce": 10, \
@@ -187,7 +187,7 @@ it may come from services[i] of services[1],services[2],...,services[n] that sub
     
 ##### clientID
     
-    curl -XPOST localhost:7890/amco/api/producer  \ 
+    curl -XPOST localhost:7890/api/producer  \ 
     -d '{"aWait":[Boolean], "message":{[JSON][, "clientID":"[UUID]" ]}, \ 
     "topics":{"sending":"[SEND_TO_TOPIC]"}}'
     
@@ -227,12 +227,12 @@ you let topics list to empty so that will subscribe all topics
 
 ###### subscribe multi-topics
 
-    curl -XPOST localhost:7890/amco/api/consumer \ 
+    curl -XPOST localhost:7890/api/consumer \ 
     -d '{"topics":["topice1","topic2","topic3"], "groupID":"GROUP_NAME","autoOffsetReset":"[FLAGS]"}' 
 
 ###### subscribe all topics
 
-    curl -XPOST localhost:7890/amco/api/consumer \ 
+    curl -XPOST localhost:7890/api/consumer \ 
     -d '{"topics":[], "groupID":"GROUP_NAME","autoOffsetReset":"[FLAGS]"}' 
 
 
