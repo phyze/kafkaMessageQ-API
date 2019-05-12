@@ -8,9 +8,9 @@ import (
 
 func ServeHandle() *mux.Router {
 	router := mux.NewRouter()
-	router.HandleFunc("/amco/api", core.Index)
-	router.HandleFunc("/amco/api/producer", core.ProduceHandle).Methods("POST")
-	router.HandleFunc("/amco/api/consumer", core.ConsumeHandle).Methods("POST")
+	router.HandleFunc("/api", core.Index)
+	router.HandleFunc("/api/producer", core.ProduceHandle).Methods("POST")
+	router.HandleFunc("/api/consumer", core.ConsumeHandle).Methods("POST")
 
 	return router
 }

@@ -26,9 +26,6 @@ const (
 	Timeout = 30
 
 	FormatTimeLogPattern = "2006-01-02 15:04:05"
-
-	EndfixProducer = "req"
-	EndFixProducerConsume = "res"
 )
 
 var (
@@ -37,7 +34,4 @@ var (
 	InfoPath = path.Join(currentPath, "logs/info/info.log")
 
 	DebugPath = path.Join(currentPath, "logs/debug/debugs.log")
-
-
-
 )

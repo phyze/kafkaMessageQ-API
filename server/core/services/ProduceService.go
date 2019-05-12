@@ -3,15 +3,12 @@
 package services
 
 import (
-	"errors"
-	"fmt"
 	"KafkaMessageQ-API/server/core/config"
 	"KafkaMessageQ-API/server/core/structs/commu"
 	"KafkaMessageQ-API/server/plugin"
 	"KafkaMessageQ-API/server/plugin/kafkaclient"
 	"KafkaMessageQ-API/server/plugin/uuid"
-	"regexp"
-	"strings"
+	"errors"
 	"sync"
 
 	"github.com/confluentinc/confluent-kafka-go/kafka"
@@ -62,21 +59,8 @@ func ProduceService(pf *commu.ProduceForm, rt chan *commu.ResponseTringger) {
 		configMap := config.ConfigConsume
 		configMap["group.id"] = clientID.String()
 
-		//คำนวลหาว่า topic ขา sending มี -req เข้ามาไหม และ receving ค่าไหมถ้าไม่
-		//ให้ดึง topice name จาก sending จากนั้นเติม -res และส่งไปที่ func AwaitMessage
-		receivingTopic := pf.Topics[config.ReceivingMessageFromTopic]
-		sendingTopic := pf.Topics[config.SendingMessageToTopic]
-		if receivingTopic == "" && sendingTopic != "" {
-			if TopicHasEndFix(pf.Topics[config.SendingMessageToTopic]) {
-				topicNameForConsumer := MidgTopicNames(sendingTopic)
-				if strings.Contains(FindTopicBody(sendingTopic), topicNameForConsumer) {
-					receivingTopic = topicNameForConsumer + "-" + config.EndFixProducerConsume
-				}
-			}
-		}
-
 		//block until receive the message
-		data, err := kafkaclient.AwaitMessage(receivingTopic, &configMap, pf.TimeoutConsume)
+		data, err := kafkaclient.AwaitMessage(pf.Topics[config.ReceivingMessageFromTopic], &configMap, pf.TimeoutConsume)
 
 		if err != nil {
 			response.Error = err.Error()
@@ -180,32 +164,4 @@ func producer(topic string, identify bool, pf *commu.ProduceForm, wg *sync.WaitG
 	}
 	errChan <- nil
 	return
-}
-
-//TopicHasEndFix เช็คว่ามี -req หรือไม่ ถ้าไม่มี return false
-func TopicHasEndFix(s string) bool {
-	shatters := strings.Split(s, "-")
-	if shatters[len(shatters)-1] == config.EndfixProducer {
-		return true
-	}
-	return false
-}
-
-//FindTopicBody ดึงค่า topic name จาก parameter และเอาแค่ส่วน body ไม่เอา -req
-func FindTopicBody(s string) string {
-	regex, _ := regexp.Compile(fmt.Sprintf("(?:([a-zA-Z0-9-]+))(?:(-%s))", config.EndfixProducer))
-	slice := regex.FindAllStringSubmatch(s, -1)
-	return strings.Join(slice[0][:], " ")
-}
-
-//MidTopicNames ดึงค่ากลางของ topic name ที่ได้จากการแตก topic name ให้เป็นหลายค่า
-//
-//::Pattern:: (?:([a-zA-Z0-9-]+))(?:(-req))
-//
-//::example::  abc-req => abc-req, abc, -req โดยหยิปค่าตรงกลางเสมอ
-func MidgTopicNames(s string) string {
-
-	regex, _ := regexp.Compile(fmt.Sprintf("(?:([a-zA-Z0-9-]+))(?:(-%s))", config.EndfixProducer))
-	slice := regex.FindAllStringSubmatch(s, -1)
-	return slice[0][1]
 }
