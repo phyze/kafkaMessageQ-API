@@ -39,22 +39,17 @@
 
 ##### macOS
     brew install librdkafka
-    brew install redis
-    ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
-    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.redis.plist
+
 
     
 ##### Ubuntu
     apt install librdkafka-dev
-    apt install redis-server
+
     
 #####  centos7+/redhat7 +
     yum install  http://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/l/librdkafka-0.11.5-1.el7.x86_64.rpm
     yum install  http://download-ib01.fedoraproject.org/pub/epel/7/x86_64/Packages/l/librdkafka-devel-0.11.5-1.el7.x86_64.rpm
-    yum install epel-release yum-utils
-    yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-    yum-config-manager --enable remi
-    yum install redis
+
     
 #### Environment Variable
 
@@ -63,26 +58,7 @@
 
 ---
 
-### Run 
-    
----
-    
-#### Redis
-
-##### macOS
-
-    redis-server /usr/local/etc/redis.conf
-            
-##### Ubuntu 
-
-    systemctl start redis
-    systemctl enable redis
-        
-##### centos/redhat
-
-    systemctl start redis
-    systemctl enable redis
-
+### Run   
 
 #### AMCO Application
 
