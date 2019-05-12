@@ -8,12 +8,14 @@ RUN wget http://archive.ubuntu.com/ubuntu/pool/universe/libr/librdkafka/librdkaf
     wget http://archive.ubuntu.com/ubuntu/pool/universe/libr/librdkafka/librdkafka-dev_0.11.5-1_amd64.deb && \
     apt install -y  ./librdkafka1_0.11.5-1_amd64.deb && \
     apt install  -y ./librdkafka++1_0.11.5-1_amd64.deb && \
-    apt install -y  ./librdkafka-dev_0.11.5-1_amd64.deb 
+    apt install -y  ./librdkafka-dev_0.11.5-1_amd64.deb && \
+    rm -f librdkafka1_0.11.5-1_amd64.deb librdkafka++1_0.11.5-1_amd64.deb librdkafka-dev_0.11.5-1_amd64.deb 
 RUN cd /usr/home/go/src/KafkaMessageQ-API && \
   ./script-build.sh -env prod && \
   cp build/KafkaMessageQ-API.tar.gz /app && \
   cd /app && \
   tar -xf /app/KafkaMessageQ-API.tar.gz && \
-  rm -rf /usr/home/go/src/*
+  rm -rf /usr/home/go/src/* && \
+  rm -f ./KafkaMessageQ-API.tar.gz 
 EXPOSE 7890
 CMD ./KafkaMessageQ-API
