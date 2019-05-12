@@ -208,6 +208,19 @@ you let topics list to empty so that will subscribe all topics
 
 ###### subscribe all topics
 
+    NOTE THAT : you must create your topics name  as follows  \
+        the first letter that can be an upper case or lower case after first letter \
+        can be digit or dash character or letters \
+
+    CASE SUPPORT :
+        symbol :
+            + <== one or more
+            * <== empty or more
+        
+        [upper case|lower case]+[dash character | digit]*
+        
+          
+
     curl -XPOST localhost:7890/api/consumer \ 
     -d '{"topics":[], "groupID":"GROUP_NAME","autoOffsetReset":"[FLAGS]"}' 
 
