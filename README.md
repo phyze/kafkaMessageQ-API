@@ -189,7 +189,7 @@ you let topics list to empty so that will subscribe all topics
 
 ##### autoOffsetReset
  
- FLAGS : earliest, latest
+ FLAGS : earliest, latest by default
  
  earliest: automatically reset the offset to the earliest offset or  oldest 
  messages
