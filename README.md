@@ -208,9 +208,9 @@ you let topics list to empty so that will subscribe all topics
 
 ###### subscribe all topics
 
-    NOTE THAT : you must create your topics name  as follows  \
-        the first letter that can be an upper case or lower case after first letter \
-        can be digit or dash character or letters \
+    NOTE THAT : you must create your topics name  as follows the first letter
+                that can be an upper case or lower case after first letter 
+                can be digit or dash character or letters 
 
     CASE SUPPORT :
         description symbol :
