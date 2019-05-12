@@ -213,12 +213,13 @@ you let topics list to empty so that will subscribe all topics
         can be digit or dash character or letters \
 
     CASE SUPPORT :
-        symbol :
+        description symbol :
             + <== one or more
             * <== empty or more
-        
-        [upper case|lower case]+[dash character | digit]*
-        
+            [a-zA-Z] <== lower case or upper case
+            [0-9-] <== digit 0 to 9 and allowed dash character
+
+        [a-zA-Z]+[0-9-]*
           
 
     curl -XPOST localhost:7890/api/consumer \ 
