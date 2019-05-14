@@ -54,13 +54,13 @@
 #### Environment Variable
 
     export GOPATH=[path to goDir workspace]
-    export AMCO_HOME=$GOPATH/src/AMCO
+    export KAFKAMESSAGEQ_HOME=$GOPATH/src/KafkaMessageQ-API
 
 ---
 
 ### Run   
 
-#### AMCO Application
+#### KafkaMessageQ Application
 
     go run main.go
 
@@ -69,8 +69,8 @@
 ## Quick start
 
 ##### Producer Asynchronous
-Note: Asynchronous in AMCO meaning producer produces the messages to brokers by \
-using synchronous send message of the kafka client library, AMCO only using \
+Note: Asynchronous in KafkaMessageQ meaning producer produces the messages to brokers by \
+using synchronous send message of the kafka client library, KafkaMessageQ only using \
 synchronous of the kafka client library.
 
 
@@ -109,8 +109,8 @@ for producer topics isn't list but it's json format, below is the fields of topi
 
 ##### aWait
     
-if true AMCO will block process until receive result  message, 
-false AMCO will not wait receive message by default.
+if true KafkaMessageQ will block process until receive result  message, 
+false KafkaMessageQ will not wait receive message by default.
 
 ##### timeouts 
     
@@ -183,7 +183,7 @@ name of service group which using consume message
  
 ##### topics 
 
-AMCO  allowed to subscribe multiple topics by default if and only if
+KafkaMessageQ  allowed to subscribe multiple topics by default if and only if
 you let topics list to empty so that will subscribe all topics 
 
 #### option
