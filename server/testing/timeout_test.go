@@ -11,7 +11,7 @@ import (
 )
 
 func TestTimeout(t *testing.T) {
-	url := "http://localhost:8000/amco/api/producer"
+	url := "http://localhost:8000/KafkaMessageQ/api/producer"
 	// data := []byte(`{
 	// 	"aWait":false,
 	// 	"message":{"mylove":"nuke"},

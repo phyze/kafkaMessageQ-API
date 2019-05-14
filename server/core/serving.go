@@ -19,7 +19,7 @@ var (
 	applicationConfig serverConfig.Application
 )
 
-var pathAMCOHome string
+var pathKafkaMessageQ string
 
 func initServer() error {
 	serverConfigYaml, err := readConfigFile()
@@ -53,13 +53,13 @@ func Start() error {
 func readConfigFile() ([]byte, error) {
 
 	//get value of Env for set project path
-	pathAMCOHome = os.Getenv(config.ProjectHome)
-	if pathAMCOHome == "" {
-		return []byte(""), errors.New("AMCO_HOME path isn't define on environment variable")
+	pathKafkaMessageQ = os.Getenv(config.ProjectHome)
+	if pathKafkaMessageQ == "" {
+		return []byte(""), errors.New("KAFKAMESSAGEQ_HOME path isn't define on environment variable")
 	}
 
 	//read system config yaml file
-	serverConfigYaml, err := ioutil.ReadFile(path.Join(pathAMCOHome, config.ServerConfigPath))
+	serverConfigYaml, err := ioutil.ReadFile(path.Join(pathKafkaMessageQ, config.ServerConfigPath))
 	if err != nil {
 		return []byte(""), err
 	}
@@ -99,7 +99,7 @@ func createLog() error {
 		infoFilePath  = path.Join(prefix, debugLogDir, infoFile)
 	)
 
-	logDir := path.Join(pathAMCOHome, prefix)
+	logDir := path.Join(pathKafkaMessageQ, prefix)
 	if _, err := os.Stat(logDir); err != nil {
 		os.MkdirAll(logDir, config.PermissionLogDir)
 	}

@@ -16,7 +16,7 @@ func TestWritelog(t *testing.T) {
 	logger.Level = log.TraceLevel
 	logger.Out = os.Stdout
 
-	file, err := os.OpenFile("/Users/a./go/src/AMCO/logs/info/info.log", os.O_CREATE|os.O_WRONLY, 0666)
+	file, err := os.OpenFile("/Users/a./go/src/KafkaMessageQ-API/logs/info/info.log", os.O_CREATE|os.O_WRONLY, 0666)
 	if err == nil {
 		logger.Out = file
 	} else {

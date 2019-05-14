@@ -75,7 +75,7 @@ do
 done
 
 export GOPATH="$gopath"
-export AMCO_HOME=$(pwd)
+export KAFKAMESSAGEQ=$(pwd)
 
 
 # build

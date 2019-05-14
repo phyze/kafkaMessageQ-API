@@ -2,7 +2,7 @@ FROM golang:latest
 COPY . /usr/home/go/src/KafkaMessageQ-API
 WORKDIR /app
 ENV GOPATH=/usr/home/go
-ENV AMCO_HOME=/app
+ENV KAFKAMESSAGEQ_HOME=/app
 RUN wget http://archive.ubuntu.com/ubuntu/pool/universe/libr/librdkafka/librdkafka1_0.11.5-1_amd64.deb && \
     wget http://archive.ubuntu.com/ubuntu/pool/universe/libr/librdkafka/librdkafka++1_0.11.5-1_amd64.deb && \
     wget http://archive.ubuntu.com/ubuntu/pool/universe/libr/librdkafka/librdkafka-dev_0.11.5-1_amd64.deb && \

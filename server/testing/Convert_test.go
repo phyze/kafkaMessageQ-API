@@ -3,7 +3,7 @@
 package testing
 
 import (
-	"AMCO/server/plugin/uuid"
+	"KafkaMessageQ-API/server/plugin/uuid"
 	"log"
 	"reflect"
 	"strings"

@@ -13,7 +13,7 @@ import (
 
 func TestConsumeTopicThatDoesNotExists(t *testing.T) {
 
-	url := "http://localhost:8000/amco/api/consumer"
+	url := "http://localhost:8000/KafkaMessageQ/api/consumer"
 
 	data := []byte(`{
 		"autoOffsetReset":"earliest",

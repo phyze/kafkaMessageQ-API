@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"AMCO/server/plugin"
+	"KafkaMessageQ-API/server/plugin"
 )
 
 func TestStringFormat(t *testing.T) {

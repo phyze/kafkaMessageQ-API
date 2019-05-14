@@ -3,8 +3,8 @@
 package testing
 
 import (
-	"AMCO/server/core/config"
-	"AMCO/server/plugin/kafkaclient"
+	"KafkaMessageQ-API/server/core/config"
+	"KafkaMessageQ-API/server/plugin/kafkaclient"
 	"log"
 	"testing"
 )
