@@ -5,7 +5,7 @@ import (
 )
 
 type ResponseTringger struct {
-	Result     MessageForm `json:"result"`
+	Result     interface{} `json:"result"`
 	Error      string      `json:"error"`
 	StatusCode int         `json:"statusCode"`
 }
