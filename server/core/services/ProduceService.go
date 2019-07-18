@@ -77,8 +77,7 @@ func ProduceService(pf *commu.ProduceForm, rt chan *commu.ResponseTringger) {
 		}
 
 		//response data to client
-		mf.ClientID = clientID.String()
-		response.Result = mf
+		response.Result = mf.Message
 		response.StatusCode = _ok
 
 		rt <- &response
